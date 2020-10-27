@@ -1,6 +1,8 @@
 import React from 'react';
 import './seasonDisplay.css';
+import ClockComponent from './ClockComponent';
 
+//config object
 const seasonConfig={
     summer:{
         text :'Lets hit the beach',
@@ -11,7 +13,7 @@ const seasonConfig={
         iconName :'snowflake'
     }
 }
-
+//helper function
 const getSeason = (lat,month) =>{
     if(month>2 && month<9){
         return lat>0 ? 'summer':'winter';
@@ -19,7 +21,7 @@ const getSeason = (lat,month) =>{
         return lat>0 ? 'winter' :'summer';
     }
 }
-
+//component
 const SeasonDisplay = (props) =>{
     const season=getSeason(props.lat,new Date().getMonth());
     //const text= season==='winter' ?'Burr, it is chilly': 'Lets hit the beach';
@@ -30,6 +32,7 @@ const SeasonDisplay = (props) =>{
         <div className={`season-display ${season}`}>
             <i className={`icon-left massive ${iconName} icon`}/>
             <h1>{text}</h1>
+            <div className="clock"><ClockComponent/></div>
             <i className={`icon-right massive ${iconName} icon`}/>
         </div> 
     );
