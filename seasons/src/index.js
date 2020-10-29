@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
 import Spinner from './Spinner';
 
+
 //Class based Component having a render method.
 class App extends React.Component{
     
